@@ -16,6 +16,11 @@ requestParser.parseAsync = (request) => {
   return new Promise((resolve, reject) => {
     //! Jason- Adding a logger to help figure out what the original request looked like.
     logger.log(logger.INFO, `Original URL: ${request.url}`);
+    request.url = url.parse(request.url);
+    request.url.query = queryString.parse(request.url.query);
+
+    console.log(request.url);
+    console.log(request.url.query);
     //! Jason- Checking to see if request is anything other than a POST or PUT is if it is
     // resolving the promise.
     if (request.method !== 'POST' && request.method !== 'PUT') {
