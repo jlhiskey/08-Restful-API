@@ -3,7 +3,7 @@
 const superagent = require('superagent');
 const server = require('../lib/server');
 
-describe('/api/notes', () => {
+describe('/api/grocery-list', () => {
   beforeAll(server.start);
 
   test('should respond with 200 status code and a new json note', () => {
